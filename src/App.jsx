@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from 'modal-component-ocr-finalproject';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSecondOpen, setIsSecondOpen] = useState(false);
+  const [isThirdOpen, setIsThirdOpen] = useState(false);
 
+  // Functions to open/close modals
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
 
   const handleSecondOpen = () => setIsSecondOpen(true);
   const handleSecondClose = () => setIsSecondOpen(false);
 
+  const handleThirdOpen = () => setIsThirdOpen(true);
+  const handleThirdClose = () => setIsThirdOpen(false);
+
+  // Actions for buttons
   const primaryAction = () => {
     console.log('Primary action executed!');
     handleClose();
@@ -22,46 +28,78 @@ const App = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <main>
       <h1>Modal Component Demo</h1>
-      
-      <button onClick={handleOpen}>Open First Modal</button>
-      <button onClick={handleSecondOpen} style={{ marginLeft: '10px' }}>Open Second Modal</button>
 
-      {/* First Modal */}
+      {/* Button to trigger modals */}
+      <button onClick={handleOpen}>Modal with Title and 2 Button Actions</button>
+      <button onClick={handleSecondOpen} style={{ marginLeft: '10px' }}>Modal without Title and 1 Button Action</button>
+      <button onClick={handleThirdOpen} style={{ marginLeft: '10px' }}>Fully Customized Modal</button>
+
+      {/* First Modal: With Title and 2 Buttons */}
       <Modal
         isOpen={isOpen}
         title="Delete Employee"
         text="Are you sure you want to delete this employee?"
         onClose={handleClose}
-        primaryButton={{ label: 'Delete', onClick: primaryAction }}
-        secondaryButton={{ label: 'Cancel', onClick: secondaryAction }}
+        primaryButton={{ label: 'Delete', onClick: primaryAction, style: { backgroundColor: '#4CAF50', color: '#fff', padding: '5px 10px' }, }}
+        secondaryButton={{ label: 'Cancel', onClick: secondaryAction, style: { backgroundColor: 'rgba(255, 255, 255, 0.87)', color: '#000', padding: '5px 10px' } }}
         style={{
           backgroundColor: '#f9f9f9',
           color: '#333',
-          padding: '30px',
+          padding: '15px',
           borderRadius: '8px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
         }}
       />
 
-      {/* Second Modal with different styles */}
+      {/* Second Modal: Without Title and with 1 Button */}
       <Modal
         isOpen={isSecondOpen}
-        title="Confirm Action"
-        text="Would you like to proceed with this action?"
+        text="Do you want to continue?"
         onClose={handleSecondClose}
-        primaryButton={{ label: 'Yes', onClick: handleSecondClose }}
-        secondaryButton={{ label: 'No', onClick: handleSecondClose }}
+        primaryButton={{
+          label: 'Continue',
+          onClick: handleSecondClose,
+        }}
         style={{
-          backgroundColor: '#fff',
-          color: '#444',
-          padding: '20px',
-          borderRadius: '12px',
-          boxShadow: '0 6px 14px rgba(0,0,0,0.3)',
+          backgroundColor: 'white',
+          color: 'black',
+          padding: '10px',
+          borderRadius: '10px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
         }}
       />
-    </div>
+
+      {/* Third Modal: Fully Customized */}
+      <Modal
+        isOpen={isThirdOpen}
+        title="Custom Action"
+        text="Proceed with this action using fully customized modal UI?"
+        onClose={handleThirdClose}
+        primaryButton={{
+          label: 'Yes',
+          onClick: () => {
+            console.log('Proceed confirmed');
+            handleThirdClose();
+          },
+          style: { backgroundColor: '#4CAF50', color: '#fff', padding: '5px 10px' },
+        }}
+        secondaryButton={{
+          label: 'No',
+          onClick: handleThirdClose,
+          style: { backgroundColor: '#f44336', color: '#fff', padding: '5px 10px' },
+        }}
+        style={{
+          backgroundColor: '#282c34',
+          color: '#fff',
+          padding: '20px',
+          borderRadius: '15px',
+          boxShadow: '0 6px 14px rgba(0,0,0,0.5)',
+          textAlign: 'center',
+        }}
+      />
+    </main>
   );
 };
 
