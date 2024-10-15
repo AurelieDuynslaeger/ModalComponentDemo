@@ -7,7 +7,7 @@ Package de modal que j'ai publié sur npm : Cette application montre comment uti
 
 - Affichage de la modal lorsque le bouton est cliqué.
 - Fermeture de la modal via un bouton de fermeture.
-- Tests d'intégration réalisés avec **Vitest** pour garantir le bon fonctionnement des fonctionnalités.
+- Tests d'intégration réalisés avec **Vitest** pour garantir le bon fonctionnement de chaque fonctionnalité.
 
 ## Tests
 
