@@ -6,7 +6,7 @@ const App = () => {
   const [isSecondOpen, setIsSecondOpen] = useState(false);
   const [isThirdOpen, setIsThirdOpen] = useState(false);
 
-  // Functions to open/close modals
+  //functions to open/close modals
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
 
@@ -16,14 +16,12 @@ const App = () => {
   const handleThirdOpen = () => setIsThirdOpen(true);
   const handleThirdClose = () => setIsThirdOpen(false);
 
-  // Actions for buttons
+  //actions for buttons
   const primaryAction = () => {
-    console.log('Primary action executed!');
     handleClose();
   };
 
   const secondaryAction = () => {
-    console.log('Secondary action executed!');
     handleClose();
   };
 
@@ -60,7 +58,9 @@ const App = () => {
         onClose={handleSecondClose}
         primaryButton={{
           label: 'Continue',
-          onClick: handleSecondClose,
+          onClick: () => {
+            handleSecondClose();
+          },
         }}
         style={{
           backgroundColor: 'white',
@@ -80,7 +80,6 @@ const App = () => {
         primaryButton={{
           label: 'Yes',
           onClick: () => {
-            console.log('Proceed confirmed');
             handleThirdClose();
           },
           style: { backgroundColor: '#4CAF50', color: '#fff', padding: '5px 10px' },
