@@ -19,7 +19,7 @@ Les tests suivants ont été réalisés pour assurer la qualité de la modal :
 
 ## Déploiement
 
-Cette démo est déployée sur GitHub Pages. Vous pouvez l'essayer directement [ici](lien-vers-votre-site-github-pages).
+Cette démo est déployée sur GitHub Pages. Vous pouvez l'essayer directement [ici](https://aurelieduynslaeger.github.io/ModalComponentDemo/).
 
 ## Installation
 
